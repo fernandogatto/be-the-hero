@@ -1,2 +1,2 @@
 # semanaomnistack11
-Semana Omnistack 11.0
+Aplicação Be The Hero, desenvolvida durante a semana OmniStack 11 da Rocketseat
