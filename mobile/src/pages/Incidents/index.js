@@ -3,7 +3,7 @@ import { Feather } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native'
 import { View, Image, Text, TouchableOpacity, FlatList } from 'react-native'
 
-const api = '../../services/api'
+import api from '../../services/api'
 
 import logoImg from '../../assets/logo.png'
 
@@ -60,7 +60,7 @@ export default function Incidents() {
             <Text style={style.description}>Escolha um dos casos abaixo e salve o dia.</Text>
 
             <FlatList 
-                data={[incidents]}
+                data={incidents}
                 style={style.incidentList}
                 keyExtractor={incident => String(incident.id)}
                 showsVerticalScrollIndicator={false}
