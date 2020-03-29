@@ -42,6 +42,7 @@ Construído com ReactNative, *Knex* fazendo a integração com o banco de dados 
 Para iniciar o servidor execute os comandos no terminal:
 ```
 cd mobile
+npm install
 yarn install
 yarn start
 ```
@@ -53,8 +54,10 @@ Ao rodar o servidor, abra o navegador no endereço ```http://localhost:19002```.
 
 ### Web ###
 
+Login com possível ID: **ac3662ea**.
+
 ![](caminho até a imagem)
 
 ### Mobile ###
 
-![](caminho até a imagem)
+![](/assets/splash.png)
