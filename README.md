@@ -56,7 +56,9 @@ Ao rodar o servidor, abra o navegador no endereço ```http://localhost:19002```.
 
 Login com possível ID: **ac3662ea**.
 
-![](caminho até a imagem)
+![](/assets/logon.png)
+
+![](/assets/casos-cadastrados.png)
 
 ### Mobile ###
 
