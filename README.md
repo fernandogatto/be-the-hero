@@ -48,7 +48,7 @@ yarn start
 ```
 É possível executar os servidores do backend e do mobile juntos. Assim será possível ver as consultas do banco de dados pelo frontend do projeto.
 
-Ao rodar o servidor, abra o navegador no endereço ```http://localhost:19002```. Aparecerá um código QR nessa tela. Esperece aparecer a mensagem *Tunnel Ready*, então, com o aplicativo aberto no seu celular, aponte a câmera para esse código. Será feito o escaneamento. Após o reconhecimento, iniciará o carregamento do JavaScript. Se não funcionar com o Tunnel, tente com LAN.
+Ao rodar o servidor, abra o navegador no endereço ```http://localhost:19002```. Aparecerá um código QR nessa tela. Espere aparecer a mensagem *Tunnel Ready*, então, com o aplicativo aberto no seu celular, aponte a câmera para esse código. Será feito o escaneamento. Após o reconhecimento, iniciará o carregamento do JavaScript. Se não funcionar com a conexão LAN, tente com a Tunnel, que está acima do código QR.
 
 ## Projeto
 
