@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useHistory } from 'react-router-dom'
+import { Helmet } from 'react-helmet'
 import { FiPower, FiTrash2 } from 'react-icons/fi'
 
 import api from '../../services/api'
@@ -9,12 +10,13 @@ import logoImg from '../../assets/logo.svg'
 import './style.css'
 
 export default function Profile() {
+    const [incidents, setIncidents] = useState([])
+    const [isDark, setIsDark] = useState(false)
+    
     const history = useHistory()
 
     const ongId = localStorage.getItem('ongId')
     const ongName = localStorage.getItem('ongName')
-
-    const [incidents, setIncidents] = useState([])
     
     useEffect(() => {
         api.get('profile', {
@@ -25,6 +27,16 @@ export default function Profile() {
             setIncidents(response.data)
         })
     }, [ongId])
+
+    useEffect(() => {
+        const currentThemeColor = localStorage.getItem('theme-color')
+
+        if(currentThemeColor === 'theme-dark') {
+            setIsDark(true)
+        } else {
+            setIsDark(false)
+        }
+    }, [])
 
     async function handleDeleteIncident(id) {
         try {
@@ -46,41 +58,65 @@ export default function Profile() {
         history.push('/')
     }
 
+    const handleSwitchClick = () => {
+        if(isDark) {
+            localStorage.setItem('theme-color', 'light-theme')
+            setIsDark(false)
+        } else {
+            localStorage.setItem('theme-color', 'theme-dark')
+            setIsDark(true)
+        }
+    }
+
     return (
-        <div className="profile-container">
-            <header>
-                <img src={logoImg} alt="Be The Hero"/>
-                <span>Bem vinda, {ongName}</span>
+        <div className={`app ${isDark ? 'theme-dark' : ''}`}>
+            <Helmet bodyAttributes={{style: `${isDark ? 'background-color: #333;' : ''}`}}/>
 
-                <Link className="button" to="/incidents/new">
-                    Cadastrar novo caso
-                </Link>
+            <div className="profile-container">
+                <header>
+                    <img src={logoImg} alt="Be The Hero"/>
+                    <span>Bem vinda, {ongName}</span>
 
-                <button onClick={handleLogout} type="button">
-                    <FiPower size={18} color="#e02041"/>
-                </button>
-            </header>
+                    <div className="theme-switcher-wrap">
+                        <label className={`theme-switcher-label ${isDark ? 'active' : ''}`}
+                            onClick={handleSwitchClick}
+                        >
+                            <div className="switch-path">
+                                <div className="switch-handle"></div>
+                            </div>
+                        </label>
+                    </div>
 
-            <h1>Casos cadastrados</h1>
+                    <Link className="button" to="/incidents/new">
+                        Cadastrar novo caso
+                    </Link>
 
-            <ul>
-                {incidents.map(incident => (
-                    <li key={incident.id}>
-                        <strong>Caso:</strong>
-                        <p>{incident.title}</p>
+                    <button onClick={handleLogout} type="button">
+                        <FiPower size={18} color="#e02041"/>
+                    </button>
+                </header>
 
-                        <strong>Descrição:</strong>
-                        <p>{incident.description}</p>
+                <h1>Casos cadastrados</h1>
 
-                        <strong>Valor:</strong>
-                        <p>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(incident.value)}</p>
+                <ul>
+                    {incidents.map(incident => (
+                        <li key={incident.id}>
+                            <strong>Caso:</strong>
+                            <p>{incident.title}</p>
 
-                        <button onClick={() => handleDeleteIncident(incident.id)} type="button">
-                            <FiTrash2 size={20} color="a8a8b3" />
-                        </button>
-                    </li>
-                ))}
-            </ul>
+                            <strong>Descrição:</strong>
+                            <p>{incident.description}</p>
+
+                            <strong>Valor:</strong>
+                            <p>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(incident.value)}</p>
+
+                            <button onClick={() => handleDeleteIncident(incident.id)} type="button">
+                                <FiTrash2 size={20} color="a8a8b3" />
+                            </button>
+                        </li>
+                    ))}
+                </ul>
+            </div>
         </div>
     )
 }

@@ -1,26 +1,35 @@
 .logon-container {
     width: 100%;
     max-width: 1120px;
-    height: 100vh;
+    height: calc(100vh - 64px);
     margin: 0 auto;
+    position: relative;
+}
+
+.logon-content {
+    width: 100%;
+    margin: 0 auto;
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.logon-container section.form {
+.logon-content section.form {
     width: 100%;
     max-width: 350px;
     margin-right: 30px;
 
 }
 
-.logon-container section.form form {
+.logon-content section.form form {
     margin-top: 100px;
 }
 
-.logon-container section.form form h1 {
+.logon-content section.form form h1 {
     font-size: 32px;
     margin-bottom: 32px;
 }
