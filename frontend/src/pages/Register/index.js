@@ -52,7 +52,7 @@ export default function Register() {
 
     const handleSwitchClick = () => {
         if(isDark) {
-            localStorage.setItem('theme-color', 'light-theme')
+            localStorage.setItem('theme-color', 'theme-light')
             setIsDark(false)
         } else {
             localStorage.setItem('theme-color', 'theme-dark')
