@@ -7,7 +7,12 @@ Para clonar o repositório, execute o seguinte comando no terminal:
 git clone https://github.com/fernandogatto/be-the-hero.git
 ```
 
-## Instalação
+## 🧠 Recursos
+- CRUD ongs
+- CRUD incidentes
+- Modo light/dark
+
+## 🔓 Instalação
 Pré-requisitos:
 git, node, express, knex, sqlite, react, react-native, expo.
 
@@ -50,9 +55,9 @@ yarn start
 
 Ao rodar o servidor, abra o navegador no endereço ```http://localhost:19002```. Aparecerá um código QR nessa tela. Espere aparecer a mensagem *Tunnel Ready*, então, com o aplicativo aberto no seu celular, aponte a câmera para esse código. Será feito o escaneamento. Após o reconhecimento, iniciará o carregamento do JavaScript. Se não funcionar com a conexão LAN, tente com a Tunnel, que está acima do código QR.
 
-## Projeto
+## 🚀 Projeto
 
-### Web ###
+### 💻 Web ###
 
 Login com possível ID: **ac3662ea**.
 
@@ -60,10 +65,14 @@ Login com possível ID: **ac3662ea**.
 
 ![](/assets/casos-cadastrados.png)
 
-### Mobile ###
+### 📱 Mobile ###
 
 ![](/assets/splash.png)
 
 ![](/assets/bem-vindo.jpg)
 
 ![](/assets/caso-ong.jpg)
+
+## 📕 Licenças
+
+Feito com ❤ por [Fernando Gatto](https://github.com/fernandogatto/).
